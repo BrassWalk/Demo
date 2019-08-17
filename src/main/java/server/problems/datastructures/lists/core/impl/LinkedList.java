@@ -7,7 +7,7 @@ import java.util.StringJoiner;
 
 public class LinkedList implements ILinkedList {
 
-    private LinkedNode head;
+    private Node head;
 
     public LinkedList() {
         this.head = null;
@@ -15,12 +15,12 @@ public class LinkedList implements ILinkedList {
 
     public LinkedList(final int[] array) {
         if (array.length > 0) {
-            this.setHead(new LinkedNode(Integer.valueOf(array[0])));
+            this.setHead(new Node(Integer.valueOf(array[0])));
 
-            LinkedNode currentNode = this.getHead();
+            Node currentNode = this.getHead();
 
             for (int i = 1; i < array.length; i++) {
-                currentNode.setNext(new LinkedNode(Integer.valueOf(array[i])));
+                currentNode.setNext(new Node(Integer.valueOf(array[i])));
                 currentNode = currentNode.getNext();
             }
         } else {
@@ -28,18 +28,18 @@ public class LinkedList implements ILinkedList {
         }
     }
 
-    protected LinkedNode getHead() {
+    protected Node getHead() {
         return head;
     }
 
-    protected void setHead(LinkedNode head) {
+    protected void setHead(Node head) {
         this.head = head;
     }
 
     @Override
     public String toString() {
         final StringJoiner stringJoiner = new StringJoiner(", ", "[ ", " ]");
-        server.problems.datastructures.lists.core.impl.LinkedNode current = head;
+        Node current = head;
 
         while (current != null) {
             stringJoiner.add(current.getValue().toString());
@@ -52,7 +52,7 @@ public class LinkedList implements ILinkedList {
     @Override
     public void insert(final ILinkedNode linkedNode, final int i) {
         final ILinkedNode nextLinkedNode = linkedNode.getNext();
-        final ILinkedNode newLinkedNode = new server.problems.datastructures.lists.core.impl.LinkedNode(i);
+        final ILinkedNode newLinkedNode = new Node(i);
         linkedNode.setNext(newLinkedNode);
         newLinkedNode.setNext(nextLinkedNode);
     }

@@ -3,12 +3,12 @@ package server.problems.datastructures.lists.core.impl;
 import server.problems.datastructures.lists.core.IDoubleLinkedNode;
 import server.problems.datastructures.lists.core.ILinkedNode;
 
-public class LinkedNode implements ILinkedNode, IDoubleLinkedNode {
+public class Node implements ILinkedNode, IDoubleLinkedNode {
     private Integer value;
-    private LinkedNode previous;
-    private LinkedNode next;
+    private Node previous;
+    private Node next;
 
-    public LinkedNode(final Integer value) {
+    public Node(final Integer value) {
         this.value = value;
         this.previous = null;
         this.next = null;
@@ -20,27 +20,27 @@ public class LinkedNode implements ILinkedNode, IDoubleLinkedNode {
     }
 
     @Override
-    public LinkedNode getPrevious() {
+    public Node getPrevious() {
         return previous;
     }
 
     @Override
     public void setPrevious(final IDoubleLinkedNode previous) {
-        this.previous = (LinkedNode) previous;
+        this.previous = (Node) previous;
     }
 
     @Override
-    public LinkedNode getNext() {
+    public Node getNext() {
         return next;
     }
 
     @Override
     public void setNext(final ILinkedNode next) {
-        this.next = (LinkedNode) next;
+        this.next = (Node) next;
     }
 
     @Override
     public void setNext(final IDoubleLinkedNode next) {
-        this.next = (LinkedNode) next;
+        this.next = (Node) next;
     }
 }
