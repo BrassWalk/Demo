@@ -18,3 +18,13 @@ Need to document time and space complexity on each interface!
 
 ### Project Euler
 https://projecteuler.net/
+
+
+
+### Useful Links
+
+https://spring.io/guides/gs/spring-boot/
+
+https://spring.io/guides/gs/securing-web/
+
+https://www.baeldung.com/swagger-2-documentation-for-spring-rest-api
