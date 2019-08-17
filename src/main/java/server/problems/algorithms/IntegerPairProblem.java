@@ -1,4 +1,4 @@
-//package practice.problems;
+//package server.problems;
 //
 //import java.util.ArrayList;
 //import java.util.HashMap;

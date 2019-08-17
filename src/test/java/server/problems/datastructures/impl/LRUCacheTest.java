@@ -1,4 +1,4 @@
-package practice.problems.datastructures.impl;
+package server.problems.datastructures.impl;
 
 import org.junit.Assert;
 import org.junit.Test;

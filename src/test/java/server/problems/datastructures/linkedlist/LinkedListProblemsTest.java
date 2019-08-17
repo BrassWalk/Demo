@@ -1,4 +1,4 @@
-package practice.problems.datastructures.linkedlist;
+package server.problems.datastructures.linkedlist;
 
 import org.junit.Assert;
 import org.junit.Test;

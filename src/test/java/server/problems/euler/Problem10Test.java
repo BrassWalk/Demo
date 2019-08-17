@@ -1,12 +1,12 @@
-package practice.problems.euler;
+package server.problems.euler;
 
+import org.junit.Assert;
 import org.junit.Test;
-import server.problems.euler.Problem10;
 
 public class Problem10Test {
 
     @Test
     public void test() {
-        System.out.print("TEST OUTPUT: " + new Problem10().get());
+        Assert.assertEquals("142913828922", new Problem10().get());
     }
 }

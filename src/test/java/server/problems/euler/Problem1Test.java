@@ -1,12 +1,12 @@
-package practice.problems.euler;
+package server.problems.euler;
 
+import org.junit.Assert;
 import org.junit.Test;
-import server.problems.euler.Problem1;
 
 public class Problem1Test {
 
     @Test
     public void test() {
-        System.out.print("TEST OUTPUT: " + new Problem1().getSumOfMultiples());
+        Assert.assertEquals(233168, new Problem1().get());
     }
 }

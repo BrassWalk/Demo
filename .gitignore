@@ -20,5 +20,7 @@
 *.rar
 
 # Project files
-*.gradle*
-*.idea*
+/.gradle/
+/.idea/
+/build/
+

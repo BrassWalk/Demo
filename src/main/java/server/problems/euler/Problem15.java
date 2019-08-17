@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 public class Problem15 {
 
-    public int get(int n) {
+    public int get(final int n) {
         return recursiveCount(new HashMap<>(), n, n);
     }
 
@@ -15,7 +15,7 @@ public class Problem15 {
         final String cacheKey = downRemaining + "-" + rightRemaining;
         final Integer cacheValue = cache.get(cacheKey);
 
-        if(cacheValue != null) {
+        if (cacheValue != null) {
             return cacheValue;
         }
 

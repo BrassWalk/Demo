@@ -1,6 +1,6 @@
 package server.problems;
 
-public class SolutionTemplate {
+public class Template {
 
     public static int plusOne(int n) {
         return n + 1;

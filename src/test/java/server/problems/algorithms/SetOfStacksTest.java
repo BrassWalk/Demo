@@ -1,6 +1,7 @@
 package server.problems.algorithms;
 
 import java.util.EmptyStackException;
+
 import org.junit.Assert;
 import org.junit.Test;
 import server.problems.algorithms.SetOfStacks;
