@@ -2,6 +2,7 @@ package server.problems.datastructures.linkedlist;
 
 import java.util.StringJoiner;
 
+// beak these out into algorithm problems for linked lists
 public class LinkedListProblems {
 
     // List can be arbitrarily large. Don't want stack overflow or integer overflow.

@@ -2,7 +2,7 @@ package server.problems.algorithms;
 
 import java.util.ArrayList;
 import java.util.List;
-import server.problems.datastructures.impl.Trie;
+import server.problems.datastructures.trees.impl.Trie;
 
 // Use Cases:
 // 1. isWord(String s);

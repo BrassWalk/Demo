@@ -1,4 +1,4 @@
-package server.problems.datastructures.impl;
+package server.problems.datastructures.trees.impl;
 
 import java.util.ArrayList;
 import java.util.HashMap;

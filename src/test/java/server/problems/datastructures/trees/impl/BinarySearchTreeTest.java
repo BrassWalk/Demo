@@ -1,8 +1,8 @@
-package practice.problems.datastructures.impl;
+package server.problems.datastructures.trees.impl;
 
 import org.junit.Assert;
 import org.junit.Test;
-import server.problems.datastructures.impl.BinarySearchTreeNode;
+import server.problems.datastructures.trees.impl.BinarySearchTreeNode;
 
 public class BinarySearchTreeTest {
 
