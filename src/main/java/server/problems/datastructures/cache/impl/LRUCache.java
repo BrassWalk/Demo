@@ -1,4 +1,4 @@
-package server.problems.datastructures.impl;
+package server.problems.datastructures.cache.impl;
 
 // Least recently used cache requirements:
 // 1. evict the least recently used item.

@@ -1,9 +1,10 @@
-package server.problems.datastructures.trees;
+package server.problems.datastructures.trees.core;
 
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import server.problems.datastructures.trees.impl.Trie;
+import server.problems.datastructures.trees.ITrie;
+import server.problems.datastructures.trees.core.impl.Trie;
 
 public class TrieTest {
 

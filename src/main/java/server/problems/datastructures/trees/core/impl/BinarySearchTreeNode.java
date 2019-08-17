@@ -1,4 +1,4 @@
-package server.problems.datastructures.trees.impl;
+package server.problems.datastructures.trees.core.impl;
 
 import java.util.StringJoiner;
 

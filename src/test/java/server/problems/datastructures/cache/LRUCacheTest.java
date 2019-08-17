@@ -1,8 +1,7 @@
-package server.problems.datastructures.impl;
+package server.problems.datastructures.cache.impl;
 
 import org.junit.Assert;
 import org.junit.Test;
-import server.problems.datastructures.impl.LRUCache;
 
 // Least recently used cache requirements:
 // 1. evict the least recently used item.
