@@ -1,21 +1,17 @@
-package server.problems.datastructures.cache.impl;
+package server.problems.datastructures.cache;
 
 import org.junit.Assert;
 import org.junit.Test;
+import server.problems.datastructures.cache.impl.LruCache;
 
-// Least recently used cache requirements:
-// 1. evict the least recently used item.
-// 2. map keys to values
-// 3. Can put, get, and initialize with max capacity. When full, evict LRU item.
-
-public class LRUCacheTest {
+public class LruCacheTest {
 
     @Test
     public void test_LRUCache_putAndget() {
         final String key = "test-key";
         final String value = "test-value";
 
-        final LRUCache<String> cache = new LRUCache(10);
+        final ILruCache<String> cache = new LruCache(10);
 
         cache.put(key, value);
 
@@ -30,7 +26,7 @@ public class LRUCacheTest {
         final String key = "test-key";
         final String value = "test-value";
 
-        final LRUCache<String> cache = new LRUCache(10);
+        final ILruCache<String> cache = new LruCache(10);
 
         cache.put(key + "-no-match", value);
 
@@ -40,7 +36,7 @@ public class LRUCacheTest {
 
     @Test
     public void test_LRUCache_evictLeastRecentlyUsedItem() {
-        final LRUCache<String> cache = new LRUCache(3);
+        final ILruCache<String> cache = new LruCache(3);
 
         for (int i = 0; i < 10; i++) {
             if (i % 2 == 0) {
