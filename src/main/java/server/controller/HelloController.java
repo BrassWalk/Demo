@@ -8,7 +8,7 @@ public class HelloController {
 
     @RequestMapping("/")
     public String index() {
-        return "Swagger: http://localhost:8080/swagger-ui.html#/";
+        return "Greetings from Spring Boot!";
     }
 
 }
