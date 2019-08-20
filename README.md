@@ -3,6 +3,8 @@ For fun and demonstration
 
 ### Useful Links
 
+https://aws.amazon.com/blogs/devops/deploying-a-spring-boot-application-on-aws-using-aws-elastic-beanstalk/
+
 https://start.spring.io/
 
 https://github.com/facebook/create-react-app

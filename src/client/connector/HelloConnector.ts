@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const HOST = 'http://localhost:8080'
+const HOST = 'http://zacharyallen.us-west-2.elasticbeanstalk.com'
 const HELLO_API_URL = `${HOST}/hello`
 
 class HelloConnector {
