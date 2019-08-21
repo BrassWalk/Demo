@@ -1,12 +1,13 @@
 package demo.configuration;
 
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
-public class MvcConfiguration implements WebMvcConfigurer {
+public class WebConfiguration implements WebMvcConfigurer {
 
     public void addViewControllers(final ViewControllerRegistry registry) {
         registry.addViewController("/").setViewName("index");
@@ -18,6 +19,11 @@ public class MvcConfiguration implements WebMvcConfigurer {
 
     public void addResourceHandlers(final ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/public/**").addResourceLocations("classpath:/public/");
-        registry.addResourceHandler("/resources/**").addResourceLocations("classpath:/resources/");
+        registry.addResourceHandler("/static/**").addResourceLocations("classpath:/resources/static/");
+    }
+
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/**")
+        .allowedOrigins("http://localhost:3000", "http://localhost:8080");
     }
 }
