@@ -3,17 +3,20 @@ package demo.domain.service.impl;
 import demo.domain.datastore.IInMemoryCache;
 import demo.domain.datastore.impl.InMemoryCache;
 import demo.domain.service.ILobbyService;
-import demo.valueobject.LobbyRecord;
+import demo.valueobject.Lobby;
+import demo.valueobject.record.UserLobbyRecord;
 import demo.valueobject.id.UserId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
 public class LobbyService implements ILobbyService {
 
-    private final IInMemoryCache<UserId, LobbyRecord> cache;
+    private final IInMemoryCache<UserId, UserLobbyRecord> cache;
+    private final LocalDateTime lobbyStartTime = LocalDateTime.now();
 
     // ToDo - add as configuration
     private static final int capacity = 1000;
@@ -24,24 +27,28 @@ public class LobbyService implements ILobbyService {
     }
 
     @Override
-    public List<LobbyRecord> put(final UserId userId, final LobbyRecord value) {
-        final LobbyRecord existingRecord = this.cache.get(userId);
+    public Lobby put(final UserId userId, final UserLobbyRecord value) {
+        final UserLobbyRecord existingRecord = this.cache.get(userId);
 
         if (existingRecord == null) {
             this.cache.put(userId, value);
         } else {
-            final LobbyRecord newRecord = new LobbyRecord(
+            final UserLobbyRecord newRecord = new UserLobbyRecord(
                     value.getUserId(),
                     existingRecord.getFirstDateTime(),
                     value.getLastDateTime());
             this.cache.put(userId, newRecord);
         }
 
-        return cache.getAll();
+        return getLobbyResponse(cache.getAll());
     }
 
     @Override
-    public List<LobbyRecord> getAll() {
-        return cache.getAll();
+    public Lobby getAll() {
+        return getLobbyResponse(cache.getAll());
+    }
+
+    private Lobby getLobbyResponse(final List<UserLobbyRecord> userLobbyRecords) {
+        return new Lobby(userLobbyRecords, this.lobbyStartTime);
     }
 }

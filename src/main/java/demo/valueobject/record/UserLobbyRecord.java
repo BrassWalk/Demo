@@ -1,21 +1,21 @@
-package demo.valueobject;
+package demo.valueobject.record;
 
 import demo.valueobject.id.UserId;
 
 import java.time.LocalDateTime;
 
-public class LobbyRecord {
+public class UserLobbyRecord {
     private final UserId userId;
     private final LocalDateTime firstDateTime;
     private final LocalDateTime lastDateTime;
 
-    public LobbyRecord(final UserId userId, final LocalDateTime firstDateTime, final LocalDateTime lastDateTime) {
+    public UserLobbyRecord(final UserId userId, final LocalDateTime firstDateTime, final LocalDateTime lastDateTime) {
         this.userId = userId;
         this.firstDateTime = firstDateTime;
         this.lastDateTime = lastDateTime;
     }
 
-    public LobbyRecord(final UserId userId, final LocalDateTime lastDateTime) {
+    public UserLobbyRecord(final UserId userId, final LocalDateTime lastDateTime) {
         this.userId = userId;
         this.firstDateTime = lastDateTime;
         this.lastDateTime = lastDateTime;

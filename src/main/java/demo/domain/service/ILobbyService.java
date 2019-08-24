@@ -1,12 +1,11 @@
 package demo.domain.service;
 
-import demo.valueobject.LobbyRecord;
+import demo.valueobject.Lobby;
+import demo.valueobject.record.UserLobbyRecord;
 import demo.valueobject.id.UserId;
 
-import java.util.List;
-
 public interface ILobbyService {
-    List<LobbyRecord> put(final UserId userId, final LobbyRecord value);
+    Lobby put(final UserId userId, final UserLobbyRecord value);
 
-    List<LobbyRecord> getAll();
+    Lobby getAll();
 }
