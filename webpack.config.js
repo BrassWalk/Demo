@@ -1,22 +1,23 @@
+const path = require('path');
+
 module.exports = {
-  entry: './src/main/webapp/app.tsx',
+    mode: "production",
+    entry: './src/main/webapp/index.tsx',
+    devtool: 'inline-source-map',
+      module: {
+        rules: [
+          {
+            test: /\.tsx?$/,
+            use: 'ts-loader',
+            exclude: /node_modules/
+          }
+        ]
+      },
+    resolve: {
+      extensions: [".ts", ".tsx", ".js", ".jsx"]
+    },
   output: {
-    filename: './dist/bundle.js'
-  },
-  resolve: {
-    extensions: [".ts", ".tsx", ".js", ".jsx"]
-  },
-  loaders: [
-      { test: /\.tsx?$/, loader: "awesome-typescript-loader" }
-  ],
-
-  preLoaders: [
-      { test: /\.js$/, loader: "source-map-loader" }
-  ]
-  externals: {
-    "react": "React",
-    "react-dom": "ReactDOM"
-  },
-
-  devtool: "source-map"
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist')
+  }
 }
