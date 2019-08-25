@@ -15,6 +15,8 @@ https://spring.io/guides/gs/spring-boot/
 
 https://spring.io/guides/gs/securing-web/
 
+https://spring.io/guides/gs/scheduling-tasks/
+
 https://www.baeldung.com/swagger-2-documentation-for-spring-rest-api
 
 

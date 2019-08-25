@@ -49,6 +49,6 @@ public class LobbyService implements ILobbyService {
     }
 
     private Lobby getLobbyResponse(final List<UserLobbyRecord> userLobbyRecords) {
-        return new Lobby(userLobbyRecords, this.lobbyStartTime);
+        return new Lobby(userLobbyRecords, this.lobbyStartTime, LocalDateTime.now());
     }
 }
