@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <html lang="en">
 <head>
     <meta
@@ -11,13 +15,16 @@
     <meta name="theme-color" content="#000000"/>
 
     <link rel="apple-touch-icon" href="https://demo-ui-bundle.s3-us-west-2.amazonaws.com/public/logo192.png"/>
-<!--    <link rel="manifest" href="%PUBLIC_URL%/manifest.json"/>-->
     <title>React App</title>
-<!--    <script src="./node_modules/react/dist/react.js"></script>-->
-<!--    <script src="./node_modules/react-dom/dist/react-dom.js"></script>-->
 </head>
 <body>
-<div id="root"></div>
-<script src="https://demo-ui-bundle.s3-us-west-2.amazonaws.com/dist/bundle.js"></script>
+    <script>
+        window.webappconfig = {
+            host: "${host}"
+        }
+    </script>
+
+    <div id="root"></div>
+    <script src="https://${host}/dist/bundle.js"></script>
 </body>
 </html>
