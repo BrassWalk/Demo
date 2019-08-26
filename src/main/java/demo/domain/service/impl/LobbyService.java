@@ -24,7 +24,7 @@ public class LobbyService implements ILobbyService {
 
     @Autowired
     public LobbyService() {
-        this.cache = new InMemoryCache<>(capacity);
+        this.cache = new InMemoryCache<>(this.capacity);
     }
 
     @Override
