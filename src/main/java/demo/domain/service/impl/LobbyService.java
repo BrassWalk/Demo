@@ -7,6 +7,7 @@ import demo.valueobject.Lobby;
 import demo.valueobject.record.UserLobbyRecord;
 import demo.valueobject.id.UserId;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -18,8 +19,8 @@ public class LobbyService implements ILobbyService {
     private final IInMemoryCache<UserId, UserLobbyRecord> cache;
     private final LocalDateTime lobbyStartTime = LocalDateTime.now();
 
-    // ToDo - add as configuration
-    private static final int capacity = 1000;
+    @Value("${service.lobby-service.cache-capacity}")
+    private int capacity;
 
     @Autowired
     public LobbyService() {

@@ -19,6 +19,8 @@ https://spring.io/guides/gs/scheduling-tasks/
 
 https://www.baeldung.com/swagger-2-documentation-for-spring-rest-api
 
+https://www.baeldung.com/properties-with-spring
+
 
 
 
