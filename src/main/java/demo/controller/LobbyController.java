@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDateTime;
 import java.util.List;
 
-@RestController()
+@RestController
 public class LobbyController {
 
     private final ILobbyService lobbyService;
