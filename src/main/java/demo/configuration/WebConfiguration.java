@@ -21,12 +21,6 @@ public class WebConfiguration implements WebMvcConfigurer {
         registry.viewResolver(resolver);
     }
 
-    public void addResourceHandlers(final ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/public/**").addResourceLocations("classpath:/public/");
-        registry.addResourceHandler("/dist/**").addResourceLocations("classpath:/dist/");
-        registry.addResourceHandler("/static/**").addResourceLocations("classpath:/resources/static/");
-    }
-
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")

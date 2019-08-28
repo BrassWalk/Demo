@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "outDir": "./dist/",
+    "outDir": "./src/main/resources/static/",
     "sourceMap": true,
     "noImplicitAny": false,
     "module": "commonjs",

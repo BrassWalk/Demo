@@ -2,11 +2,11 @@ package demo.controller;
 
 import demo.valueobject.WelcomeMessage;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-@RestController
+@Controller
 public class HelloController {
 
     @Value("${service.host}")

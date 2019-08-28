@@ -10,11 +10,11 @@
             name="description"
             content="Web site created using create-react-app"
     />
-    <link rel="shortcut icon" href="https://demo-ui-bundle.s3-us-west-2.amazonaws.com/public/favicon.ico"/>
+    <link rel="shortcut icon" href="http://${host}/favicon.ico"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta name="theme-color" content="#000000"/>
 
-    <link rel="apple-touch-icon" href="https://demo-ui-bundle.s3-us-west-2.amazonaws.com/public/logo192.png"/>
+    <link rel="apple-touch-icon" href="http://${host}/logo192.png"/>
     <title>React App</title>
 </head>
 <body>
@@ -25,6 +25,6 @@
     </script>
 
     <div id="root"></div>
-    <script src="https://${host}/dist/bundle.js"></script>
+    <script src="http://${host}/bundle.js"></script>
 </body>
 </html>
