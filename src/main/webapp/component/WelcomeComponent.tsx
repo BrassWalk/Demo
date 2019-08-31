@@ -1,10 +1,9 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import io from 'socket.io-client';
-
-import HelloConnector from '../connector/HelloConnector';
+import * as io from 'socket.io-client';
 
 const SOCKET_URL = `${window.webappconfig.host}/topic/lobby-updates`
+const socket = io(`SOCKET_URL`);
 
 type WelcomeState = {
     status: string
@@ -22,13 +21,9 @@ export default class WelcomeComponent extends React.Component<{}, WelcomeState> 
         }
 
     componentDidMount() {
-        const socket = io('SOCKET_URL');
-
         socket.on('connect', this.onConnect());
         socket.on('event', data => this.onEvent(data));
         socket.on('disconnect', this.onDisconnect());
-
-        HelloConnector.getWelcomeMessage()
     }
 
     onConnect() {
