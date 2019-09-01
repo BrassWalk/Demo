@@ -18,6 +18,8 @@
     <title>React App</title>
 </head>
 <body>
+    <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+
     <script>
         window.webappconfig = {
             host: "${host}"

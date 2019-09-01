@@ -1,9 +1,10 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import * as io from 'socket.io-client';
+import * as Stomp from 'stomp-websocket';
+import * as SockJS from 'sockjs-client';
 
+const LOBBY_UPDATE_AND_READ_URL = `${window.webappconfig.host}/api/lobby/update-and-read`
 const SOCKET_URL = `${window.webappconfig.host}/topic/lobby-updates`
-const socket = io(`SOCKET_URL`);
 
 type WelcomeState = {
     status: string
@@ -15,15 +16,24 @@ export default class WelcomeComponent extends React.Component<{}, WelcomeState> 
     constructor(props) {
             super(props)
             this.state = {
-                 status: "STATUS: Never Connected.",
+                status: "STATUS: Never Connected.",
                 message: "waiting for welcome message..."
             }
         }
 
     componentDidMount() {
-        socket.on('connect', this.onConnect());
-        socket.on('event', data => this.onEvent(data));
-        socket.on('disconnect', this.onDisconnect());
+        var stompClient = null;
+
+        var socket = new SockJS('/websocket');
+        stompClient = Stomp.over(socket);
+
+        stompClient.connect({}, function (frame) {
+
+            stompClient.subscribe(SOCKET_URL, function (data) {
+                this.onEvent(data);
+            });
+
+        });
     }
 
     onConnect() {
@@ -48,7 +58,7 @@ export default class WelcomeComponent extends React.Component<{}, WelcomeState> 
         console.log("event:" + data);
         this.setState({
             status: "STATUS: Connected.",
-            message: data.message
+            message: data
         })
     }
 

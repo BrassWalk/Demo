@@ -19,8 +19,8 @@ public class LobbyService implements ILobbyService {
     private final IInMemoryCache<UserId, UserLobbyRecord> cache;
     private final LocalDateTime lobbyStartTime = LocalDateTime.now();
 
-    @Value("${service.lobby-service.cache-capacity}")
-    private int capacity;
+//    @Value("${service.cache.capacity}")
+    private Integer capacity = 1000;
 
     @Autowired
     public LobbyService() {

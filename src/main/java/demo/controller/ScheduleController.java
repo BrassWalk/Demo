@@ -24,8 +24,7 @@ public class ScheduleController {
 
     @Scheduled(fixedDelay = 1000, initialDelay = 1000)
     public void scheduleFixedDelayTask() {
-        System.out.println("Fixed delay task - " + System.currentTimeMillis() / 1000);
-
+        System.out.println("sending update");
         this.template.convertAndSend("/topic/lobby-updates", this.lobbyService.getAll());
     }
 }
