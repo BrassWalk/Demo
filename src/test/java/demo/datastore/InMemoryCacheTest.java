@@ -1,6 +1,6 @@
-package demo.domain.datastore;
+package demo.datastore;
 
-import demo.domain.datastore.impl.InMemoryCache;
+import demo.datastore.impl.InMemoryCache;
 import org.junit.Assert;
 import org.junit.Test;
 

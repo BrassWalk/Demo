@@ -1,6 +1,6 @@
-package demo.domain.datastore.impl;
+package demo.datastore.impl;
 
-import demo.domain.datastore.IInMemoryCache;
+import demo.datastore.IInMemoryCache;
 
 import java.util.*;
 import java.util.stream.Collectors;

@@ -1,10 +1,8 @@
 package demo.controller;
 
-import demo.domain.service.ILobbyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.scheduling.annotation.EnableScheduling;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Controller;
 
 @Controller
@@ -12,14 +10,11 @@ import org.springframework.stereotype.Controller;
 public class ScheduleController {
 
     private final SimpMessagingTemplate template;
-    private final ILobbyService lobbyService;
 
     @Autowired
     public ScheduleController(
-            final SimpMessagingTemplate template,
-            final ILobbyService lobbyService) {
+            final SimpMessagingTemplate template) {
         this.template = template;
-        this.lobbyService = lobbyService;
     }
 
 //    @Scheduled(fixedDelay = 1000, initialDelay = 1000)

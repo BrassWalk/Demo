@@ -1,4 +1,4 @@
-package demo.domain.datastore.impl;
+package demo.datastore.impl;
 
 public class Node<K, V> {
     private final K key;

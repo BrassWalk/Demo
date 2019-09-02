@@ -1,4 +1,4 @@
-package demo.domain.datastore;
+package demo.datastore;
 
 import java.util.List;
 

@@ -1,28 +1,42 @@
 package demo.valueobject.id;
 
 import java.util.Objects;
+import java.util.UUID;
 
 public class UserId {
-    private final String ipAddress;
+    private String userId;
 
-    public UserId(String ipAddress) {
-        this.ipAddress = ipAddress;
+    public UserId() {
+        this.userId = UUID.randomUUID().toString();
     }
 
-    public String getIpAddress() {
-        return ipAddress;
+    public UserId(final UUID uuid) {
+        this.userId = uuid.toString();
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(final Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        UserId userId = (UserId) o;
-        return Objects.equals(ipAddress, userId.ipAddress);
+        final UserId other = (UserId) o;
+        return Objects.equals(this.userId, other.userId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(ipAddress);
+        return Objects.hash(this.userId);
+    }
+
+    @Override
+    public String toString() {
+        return this.userId;
     }
 }

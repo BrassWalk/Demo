@@ -1,25 +1,74 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import * as Stomp from 'stomp-websocket';
 import * as SockJS from 'sockjs-client';
 import { Client } from '@stomp/stompjs';
 
-const CREATE_URL = `ws://localhost:8080/app/create/db018538-70ef-4034-b319-c897f5977e15`
-const MOVE_URL = `ws://localhost:8080/app/move/db018538-70ef-4034-b319-c897f5977e15`
-const SOCKET_URL = `ws://localhost:8080/topic/board/db018538-70ef-4034-b319-c897f5977e15`
-const SOCKET_URL2 = `ws://localhost:8080/topic/move/db018538-70ef-4034-b319-c897f5977e15`
-
 type WelcomeState = {
-    stompClient: any
     client: any
+    userUuid: string
+    userName: string
+    userNameSent: boolean
+    users: Set<String>
 }
 
 export default class WelcomeComponent extends React.Component<{}, WelcomeState> {
 
     constructor(props) {
         super(props)
-        this.onCreateClick = this.onCreateClick.bind(this);
-        this.onMoveClick = this.onMoveClick.bind(this);
+
+        this.onClick = this.onClick.bind(this);
+        this.onChange = this.onChange.bind(this);
+
+        this.state = {
+            client: null,
+            userUuid: this.guid(),
+            userName: null,
+            userNameSent: false,
+            users: new Set()
+        }
+    }
+
+    render() {
+        console.log(this.state.users)
+let array = Array.from(this.state.users);
+let test = [];
+
+         array.forEach(function(item){
+           test.push(<li key="item"> {item} </li>);
+         });
+
+        return (
+            <div className="container">
+                 <p>My UserId: {this.state.userUuid}</p>
+                 <p>My UserName: {this.state.userName}</p>
+                 <input
+                       type="text"
+                       disabled={this.state.userNameSent}
+                       className="add-item__input"
+                       value={this.state.userName}
+                       onChange={this.onChange}
+                       placeholder='username here...'
+                 />
+                 <button
+                    disabled={this.state.userNameSent}
+                    className="send btn btn-default"
+                    onClick={this.onClick}>
+                      REGISTER
+                 </button>
+<ul>
+{ test }
+</ul>
+            </div>
+        )
+    }
+
+    onClick(event) {
+        this.setState({ userNameSent: true })
+        this.state.client.publish({destination: '/app/user/create/' + this.state.userUuid, body: null});
+    }
+
+    onChange(event) {
+        this.setState({ userName: event.target.value })
     }
 
     componentDidMount() {
@@ -28,55 +77,26 @@ export default class WelcomeComponent extends React.Component<{}, WelcomeState> 
        client.configure({
          brokerURL: 'ws://localhost:8080/game/websocket',
          onConnect: () => {
-           console.log('onConnect');
-
-           client.subscribe('/topic/create/db018538-70ef-4034-b319-c897f5977e15', message => {
-                console.log('response from create topic!');
-             console.log(message);
+           client.subscribe('/topic/user/create', message => {
+             const users = this.state.users;
+             users.add(JSON.parse(message.body).userName);
+             this.setState({ users: users })
            });
-
-           client.subscribe('/topic/move/db018538-70ef-4034-b319-c897f5977e15', message => {
-                console.log('response from move topic!');
-             console.log(message);
-           });
-         },
-
-         debug: (str) => {
-           console.log(new Date(), str);
          }
        });
 
        client.activate();
 
-       this.setState({stompClient: null, client: client})
+       this.setState({ client: client })
     }
 
-    onCreateClick(event) {
-        console.log("sending create message...");
-
-        this.state.client.publish({destination: '/app/create/db018538-70ef-4034-b319-c897f5977e15', body: null});
-
-        console.log("message sent...");
-    }
-
-    onMoveClick(event) {
-        console.log("sending move message...");
-
-        this.state.client.publish({destination: '/app/move/db018538-70ef-4034-b319-c897f5977e15', body: null});
-
-        console.log("message sent...");
-    }
-
-    render() {
-        return (
-            <div className="container">
-                 <button className="send btn btn-default" onClick={this.onCreateClick}>
-                      SEND CREATE
-                 </button>
-                 <button className="send btn btn-default" onClick={this.onMoveClick}>
-                       SEND MOVE
-                  </button>
-            </div>
-        )
+    guid() {
+      function s4() {
+        return Math.floor((1 + Math.random()) * 0x10000)
+          .toString(16)
+          .substring(1);
+      }
+      return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+        s4() + '-' + s4() + s4() + s4();
     }
 }

@@ -21,6 +21,9 @@ https://www.baeldung.com/swagger-2-documentation-for-spring-rest-api
 
 https://www.baeldung.com/properties-with-spring
 
+http://jmesnil.net/stomp-websocket/doc/
+
+https://stomp-js.github.io/stomp-websocket/codo/extra/docs-src/Usage.md.html#toc_5
 
 
 
