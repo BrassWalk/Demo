@@ -22,9 +22,9 @@ public class ScheduleController {
         this.lobbyService = lobbyService;
     }
 
-    @Scheduled(fixedDelay = 1000, initialDelay = 1000)
-    public void scheduleFixedDelayTask() {
-        System.out.println("sending update");
-        this.template.convertAndSend("/topic/lobby-updates", this.lobbyService.getAll());
-    }
+//    @Scheduled(fixedDelay = 1000, initialDelay = 1000)
+//    public void scheduleFixedDelayTask() {
+//        System.out.println("sending update");
+//        this.template.convertAndSend("/topic/lobby-updates", this.lobbyService.getAll());
+//    }
 }

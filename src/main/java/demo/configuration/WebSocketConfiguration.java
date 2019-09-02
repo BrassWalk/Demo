@@ -28,6 +28,6 @@ public class WebSocketConfiguration implements WebSocketMessageBrokerConfigurer 
     }
 
     public void registerStompEndpoints(StompEndpointRegistry stompEndpointRegistry) {
-        stompEndpointRegistry.addEndpoint("/game").withSockJS();
+        stompEndpointRegistry.addEndpoint("/game").setAllowedOrigins("*").withSockJS().setSupressCors(true);
     }
 }
